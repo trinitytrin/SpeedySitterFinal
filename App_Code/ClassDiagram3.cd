@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RequestFinder">
+    <Position X="1" Y="0.5" Width="7.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>App_Code\RequestFinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PersonInfoGetter">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAABAAAAAAAAIAAAAAAAAAQAACAA=</HashCode>
+      <FileName>App_Code\PersonInfoGetter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RequestFinder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DistanceCalculator">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>App_Code\DistanceCalculator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RequestFinder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChildInfoGetter">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>App_Code\ChildInfoGetter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RequestFinder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NewAddress" Collapsed="true">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICIGAAACwAAAIIAAACCAAAAEwAAABEAAAABQAAAgI=</HashCode>
+      <FileName>App_Code\NewAddress.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DistanceCalculator" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Person" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQECAAACAAhBIgAARCACEMABABAAAiAUCQIgEAAAA=</HashCode>
+      <FileName>App_Code\Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PersonInfoGetter" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Child" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAACAAEBBIABAQKAAAEAAAAAAAABAAAAAAEAAA=</HashCode>
+      <FileName>App_Code\Child.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ChildInfoGetter" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Request" Collapsed="true">
+    <Position X="0.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACgAAAAAAAEAAoABAAKAAAAIAAiAAAAAACAAACAKAA=</HashCode>
+      <FileName>App_Code\Request.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RequestFinder" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

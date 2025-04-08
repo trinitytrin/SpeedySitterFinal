@@ -1,0 +1,75 @@
+﻿
+
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div style="float:left;width:50%">
+        <img src="welcome.jpg" width="100%" />
+    </div>
+    @{
+        if (IsPost)
+        {
+            //int session_pid = 3;
+            string street = Request["street"];
+            string apt = Request["address2"];
+            string city = Request["city"];
+            string state = Request["state"];
+            string zip = Request["zip"];
+            string latloc = Request["lati"];
+            string lonloc = Request["loni"];
+            NewAddress ad = new NewAddress();
+            ad.Lat = Double.Parse(latloc);
+            ad.Lon = Double.Parse(lonloc);
+            ad.Street1 = street;
+            ad.Street2 = apt;
+            ad.City = city;
+            ad.State = state;
+            ad.Zip = zip;
+
+            Response.Write("Hi! This is your full address that is saved to the database: <BR>") ;
+            <br>
+            Response.Write(" Physical Address: Street: "+ ad.Street1+", Apt/Unit: "+ ad.Street2+ ", City: "+ ad.City+", State: "+ ad.State+"  Zip: "+ ad.Zip+"<BR>");
+            <br>
+            Response.Write(" Latitude and Longitude: " + ad.Lat + " " + ad.Lon+"<BR>");
+
+            string session_user = Session["USER_NAME"].ToString();
+
+            Person CurrenntUser = new Person();
+            //NewAddress CurrentUserAddress = new NewAddress();
+            CurrenntUser = PersonInfoGetter.GetPersonInfoByUsername(session_user);
+            //CurrentUserAddress = PersonInfoGetter.GetPersonAddress(CurrenntUser.Pid);
+
+            ad.SaveAddressDB(CurrenntUser.Pid);
+
+            <div id="floating-panel">
+                <form name="myForm2" action="ShowResultAddress.aspx"
+                              method="post">
+                    <input type="submit" value="Search Nearby Parents/BabySitter" class="submit">
+
+                </form>
+            </div>
+            <div id="floating-panel">
+                <form name="myForm2" action="~/NewHome.aspx"
+                      method="post">
+                    <input type="submit" value="Go Back Home" class="submit">
+
+                </form>
+            </div>
+
+
+        }
+        else
+        {
+            Response.Write("Error in post!");
+        }
+
+
+    }
+
+</body>
+</html>

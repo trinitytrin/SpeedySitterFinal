@@ -1,0 +1,122 @@
+﻿
+@{
+//Written By: Tanzila
+//this code creates Request and Child Class and calls the funcitons that saves new request to database
+
+}
+
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+
+</head>
+<body >
+
+
+    <div style="float:left;width:50%">
+        <img src="welcome.jpg" width="100%" />
+    </div>
+                
+                    @{
+                        if (IsPost)
+                        {
+                            //int parentid = 3;
+                            int size = 0;
+                            //Response.Write("Post Successful!");
+
+                            string rdate = Request["rdate"];
+                            Response.Write("-------------------------------------------" + "<BR>");
+
+                            //Response.Write(rdate);
+
+                            string session_user = Session["USER_NAME"].ToString();
+
+                            Person CurrenntUser = new Person();
+                            NewAddress CurrentUserAddress = new NewAddress();
+                            CurrenntUser = PersonInfoGetter.GetPersonInfoByUsername(session_user);
+                            CurrentUserAddress = PersonInfoGetter.GetPersonAddress(CurrenntUser.Pid);
+
+
+
+                            Request demoreq = new Request();
+
+                            demoreq.RDate = rdate;
+
+
+                            Request[] R = new Request[0];
+
+                            R = RequestFinder.SearchRequest(demoreq, R);
+
+
+                            size = R.Length;
+
+                            if (size > 0)
+                            {
+                                Response.Write("------Showing Requests that match your search------------" + "<BR>");
+
+                                for (int i = 0; i < size; i++)
+                                {
+                                    Response.Write("-------------------------------------------" + "<BR>");
+                                    Response.Write("Request No: "+(i+1)+" " +" - Request Id: " +R[i].Rid + "<BR>");
+                                    Response.Write("For Date: " + R[i].RDate + "<BR>");
+                                    Response.Write("Start Time: " + R[i].StartTime + " and End Time: " + R[i].EndTime + "<BR>");
+                                    Response.Write("Request Specificaion: " + R[i].Comments + "<BR>");
+
+                                    Person p = new Person();
+                                    p=PersonInfoGetter.GetPersonInfo(R[i].Pid);
+
+                                    NewAddress ad = PersonInfoGetter.GetPersonAddress(R[i].Pid);
+
+                                    Child c = ChildInfoGetter.GetChildInfoByID(R[i].Cid);
+
+
+                                    Response.Write("<BR>Request Made By: " + p.FName + "  " + p.LName + "<BR>");
+                                    Response.Write("Sex: " + p.Sex + ", User Type: " + p.Type + ", Visa Status: " + p.VisaStatus + "<BR>");
+                                    Response.Write("Phone: " + p.Phone + ", Email: " + p.Email + "<BR>" + "<BR>");
+                                    Response.Write("Address: " + ad.Street1 + ", " + ad.City + ", " + ad.State + " " + ad.Zip + "<BR>");
+
+                                    double distance = DistanceCalculator.CalculateDistance(CurrentUserAddress.Lat, CurrentUserAddress.Lon, ad.Lat, ad.Lon);
+                                    Response.Write("Distance from your location is: " + distance + " Kilometers <BR>");
+
+                                    Response.Write("<BR>Request Made For Child: " + c.FName + "  " + c.LName + "<BR>");
+                                    Response.Write("Sex: " + c.Sex + ", Date-0f-Birth: " + c.DOB + "<BR>");
+                                    Response.Write("Special Need: " + c.SpecialNeed + "<BR>");
+
+                                }
+                            }
+                            else
+                            {
+                                Response.Write("SORRY! NO Match Found! with your request");
+                            }
+
+
+
+
+
+                        }
+                        else
+                        {
+                            Response.Write("Error in post!");
+                        }
+
+
+                    }
+
+
+
+    <div id="floating-panel">
+        <form name="myForm2" action="~/NewHome.aspx"
+              method="post">
+            <input type="submit" value="Go Back Home" class="submit">
+
+        </form>
+    </div>
+
+
+
+
+
+</body>
+</html>

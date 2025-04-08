@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Speedy Sitter</title>
+
+</head>
+<body>
+
+    <div style="float:left;width:50%">
+        <img src="welcome.jpg" width="100%" />
+    </div>
+
+                <p>
+                    <form name="newRequestForm" id="newRequestForm" action="~/CreateNewRequestDB.cshtml" onsubmit="return validateForm()" method="post">
+
+                        <label><b>Enter Date: </b><span class="error">*</label>
+                        <input type="date" name="rdate" id="rdate" required></br></br>
+
+                        <label><b>Start Time:</b><span class="error">* </label>
+                        <input type="time" name="stime" id="stime" required></br></br>
+
+                        <label><b>End Time:</b><span class="error">* </label>
+                        <input type="time" name="etime" id="etime" required></br></br>
+
+
+
+                        <label><b>Any special comments or requirements?</b><span class="error">*</label>
+                        <input type="text" placeholder="Enter Comments/requirements here" name="comment" id="comment"  required>  <br>
+
+                        <label><b>Child's First Name</b><span class="error">* </label>
+                        <input type="text" name="childname" id="childname" required></br></br>
+
+
+                        <input id="SubmitRequest" name="submitRequest" type="submit" value="Submit Request" /> &nbsp; &nbsp;<input id="Reset1" type="reset" value="Reset" />&nbsp;
+                    </form>
+                </p>
+
+    <div id="floating-panel">
+        <form name="myForm2" action="~/NewHome.aspx"
+              method="post">
+            <input type="submit" value="Go Back Home" class="submit">
+
+        </form>
+    </div>
+
+
+
+
+</body>
+</html>
+
+
+ 

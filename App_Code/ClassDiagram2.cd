@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NewAddress" Collapsed="true">
+    <Position X="1" Y="6.5" Width="1.5" />
+    <AssociationLine Name="GetsPersonAddress" Type="PersonInfoGetter" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="6.968" />
+        <Point X="3.062" Y="6.968" />
+        <Point X="3.062" Y="4.998" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAICIGAAACwAAAIIAAACCAAAAEwAAABEAAAABQAAAgA=</HashCode>
+      <FileName>App_Code\NewAddress.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetsPersonAddress" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.608" />
+  </Class>
+  <Class Name="Person" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <AssociationLine Name="GetsPersonInfo" Type="PersonInfoGetter" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="6.484" />
+        <Point X="4.562" Y="6.484" />
+        <Point X="4.562" Y="4.998" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAQECAAACAAhBIgAARCACEMABABAAAiAUCQIgAAAAA=</HashCode>
+      <FileName>App_Code\Person.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetsPersonInfo" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PersonInfoGetter">
+    <Position X="2.5" Y="3.5" Width="2.75" />
+    <AssociationLine Name="GetsPersonsInfoAddress" Type="GetDBAddress">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.057" Y="0.252" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>App_Code\PersonInfoGetter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetsPersonsInfoAddress" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GetDBAddress">
+    <Position X="4.25" Y="1.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\GetDBAddress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DistanceCalculator">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DistanceCalculator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CalculatesDistance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AddressSorter">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\AddressSorter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SortsAddress" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="IAddress" Collapsed="true">
+    <Position X="1" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAGAAAAAAAAAIAAACCAAAAAwAAABAAAAABQAAAAA=</HashCode>
+      <FileName>App_Code\IAddress.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IPerson" Collapsed="true">
+    <Position X="5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAhBAAAAACAAAEAAABAAACAQCQIAAAAAA=</HashCode>
+      <FileName>App_Code\IPerson.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

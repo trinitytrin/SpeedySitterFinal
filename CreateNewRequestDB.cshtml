@@ -1,0 +1,102 @@
+﻿
+@{
+    //Written By: Tanzila
+    //this code creates Request and Child Class and calls the funcitons that saves new request to database 
+
+ }
+
+
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Speedy Sitter</title>
+
+</head>
+<body>
+
+    <div style="float:left;width:50%">
+        <img src="welcome.jpg" width="100%" />
+    </div>
+                <p>
+                    @{
+                        if (IsPost)
+                        {
+                            string session_user = Session["USER_NAME"].ToString();
+                            Person CurrenntUser = new Person();
+
+                            CurrenntUser = PersonInfoGetter.GetPersonInfoByUsername(session_user);
+
+                            string rdate = Request["rdate"];
+                            string stime = Request["stime"];
+                            string etime = Request["etime"];
+                            string comment = Request["comment"];
+                            string childname = Request["childname"];
+
+                            Request req = new Request();
+                            req.RDate = rdate;
+                            req.StartTime = stime;
+                            req.EndTime = etime;
+                            req.Comments = comment;
+
+                            Child reqChild = new Child();
+                            reqChild = FindChildIDByName.GetChildInfo(childname, CurrenntUser.Pid);
+
+                            req.Cid = reqChild.Cid;
+                            req.Pid = reqChild.Pid;
+
+                            if (reqChild.Cid > 0)
+                            {
+
+                                Response.Write("<BR>Hi! This is your request that is saved to the database: <BR>");
+                                <br>
+                                Response.Write("Date: " + req.RDate + " , Start Time: " + req.StartTime + " EndTime: " + req.EndTime + "<BR>");
+                                <br>
+                                Response.Write("Special Comments: " + req.Comments + " Child Name: " + reqChild.FName + " " + reqChild.LName + "<BR>");
+
+                                if (RequestCreator.SaveRequestDB(req))
+                                {
+                                    Response.Write("<BR>Request Successfully Saved!<BR>");
+
+                                <div id="floating-panel">
+                                    <form name="myForm2" action="~/NewHome.aspx"
+                                          method="post">
+                                        <input type="submit" value="Go Back Home" class="submit">
+
+                                    </form>
+                                </div>
+                                }
+
+                                else
+                                {
+                                    Response.Write("<BR>Error in Query! :( <BR>");
+
+                                }
+                            }
+
+                            else
+                            {
+                                Response.Redirect("ViewChildProfile");
+                            }
+
+                        }
+                        else
+                        {
+                            Response.Write("Error in post!");
+                        }
+
+
+                        }
+
+
+
+
+</p>
+
+
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,52 @@
+﻿
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Speedy Sitter</title>
+
+</head>
+<body>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div style="float:left;width:50%">
+        <img src="welcome.jpg" width="100%" />
+    </div>
+
+                <p>
+                    <form name="newRequestForm" id="newRequestForm" action="~/FindRequestDB.cshtml" onsubmit="return validateForm()" method="post">
+
+                        <label><b>Enter Date: </b><span class="error">*</label>
+                        <input type="date" name="rdate" id="rdate" required></br></br>
+
+
+
+                        <input id="SubmitRequest" name="submitRequest" type="submit" value="Find Requests" /> &nbsp; &nbsp;<input id="Reset1" type="reset" value="Reset" />&nbsp;
+                    </form>
+                </p>
+
+    <div id="floating-panel">
+        <form name="myForm2" action="~/NewHome.aspx"
+              method="post">
+            <input type="submit" value="Go Back Home" class="submit">
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+            </section>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+
